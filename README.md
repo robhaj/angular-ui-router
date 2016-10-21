@@ -14,10 +14,19 @@ Don't forget to add `'ui.router'` to your main module's list of dependencies.
 
 
 ### ngRoute vs uiRouter
-With the ngRoute module, we used the ng-view directive, `<ng-view></ng-view>`, so that the templates know where to get "hot-swapped". We do the same with ui-router except the directive name is `<ui-view></ui-view>`.
+With the ngRoute module, we used the ng-view directive, `<ng-view></ng-view>`, so that the templates know where to get "hot-swapped". We do the same with ui-router except the directive name is `<ui-view></ui-view>`. In the body of index.html, add
+```html
+<div class="container">
+  <a ui-sref="about">About</a> |
+  <a ui-sref="home">Home</a>
+  <div ui-view></div>
+</div>
+```
 
 ### $stateProvider && $urlRouterProvider
 The service we used with ngRoute was called `$routeProvider`. With uiRouter, we'll use the `$stateProvider` and `$urlRouterProvider` services. Instead of calling the `.when()` method, where we gave it the route and a object defining the controller and template, we'll use the `.state()` method which works very similarly. Here is the snippet from the code example included in this repo.
+
+Now we are going to add "partials" or child templates of another html page. Let's create a partials directory inside a component and add another `.html` file. A common naming convention for partials you'll probably see is to prefix the file name with an underscore such as `_list.html`. Create a partial which we will use as a nested view.
 
 ```js
 function appConfig($stateProvider, $urlRouterProvider) {
@@ -46,4 +55,4 @@ function appConfig($stateProvider, $urlRouterProvider) {
 }
 ```
 
-In the example above, we have the home route and about route, each with a nested route. The
+In the example above, we have the home route and about route, each with a nested route. The `$urlRouterProvider` service exposes a method called otherwise, just like `$routeProvider` method of the same name. This allows to specify a default for our client-side routing, in case the end-user some how has ended up at a route that doesn't exist.
