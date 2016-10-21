@@ -29,7 +29,5 @@
         controller: 'aboutController',
         controllerAs: 'aboutCtrl'
       });
-
   }
-
 })();
