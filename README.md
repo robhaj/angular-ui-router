@@ -51,8 +51,6 @@ With the ngRoute module, we used the ng-view directive, `<ng-view></ng-view>`, s
 ### $stateProvider && $urlRouterProvider
 The service we used with ngRoute was called `$routeProvider`. With uiRouter, we'll use the `$stateProvider` and `$urlRouterProvider` services. Instead of calling the `.when()` method, where we gave it the route and a object defining the controller and template, we'll use the `.state()` method which works very similarly. Here is the snippet from the code example included in this repo.
 
-### Create some views!
-Now we are going to add "partials" or child templates of another html page. Let's create a partials directory inside a component and add another `.html` file. A common naming convention for partials you'll probably see is to prefix the file name with an underscore such as `_list.html`. Create a partial which we will use as a nested view.
 
 ```js
 function appConfig($stateProvider, $urlRouterProvider) {
@@ -82,3 +80,6 @@ function appConfig($stateProvider, $urlRouterProvider) {
 ```
 
 In the example above, we have the home route and about route, each with a nested route. The `$urlRouterProvider` service exposes a method called otherwise, just like `$routeProvider` method of the same name. This allows to specify a default for our client-side routing, in case the end-user some how has ended up at a route that doesn't exist.
+
+### Create some views!
+Now we are going to add "partials" or child templates of another html page. Let's create a partials directory inside a component and add another `.html` file. A common naming convention for partials you'll probably see is to prefix the file name with an underscore such as `_list.html`. Create a partial which we will use as a nested view.
