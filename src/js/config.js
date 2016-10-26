@@ -14,7 +14,6 @@
         templateUrl: 'js/components/main/main.view.html'
       })
       .state('home.list', {
-        url: 'list',
         templateUrl: 'js/components/main/partials/_list.html',
         controller: 'mainController',
         controllerAs: 'mainCtrl'
@@ -24,7 +23,6 @@
         templateUrl: 'js/components/about/about.view.html'
       })
       .state('about.contacts', {
-        url: '/contacts',
         templateUrl: 'js/components/about/partials/_contact.html',
         controller: 'aboutController',
         controllerAs: 'aboutCtrl'
